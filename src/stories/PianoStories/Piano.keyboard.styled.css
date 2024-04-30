@@ -1,0 +1,65 @@
+.storybook-piano-keyboard {
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  width: 40px;
+  height: 200px;
+  display: flex;
+  cursor: pointer;
+}
+
+.storybook-piano-keyboard--white {
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  border: 1px solid #928d93;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 10px;
+  border: solid #928d93;
+  border-width: 3px 1.5px 3px 3px;
+}
+
+.storybook-piano-keyboard--black {
+  background: #000;
+  width: 30px;
+  height: 150px;
+  position: relative;
+  color: #fff;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  margin: auto;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.arrow {
+  margin-top: 5px;
+}
+
+.storybook-piano-keyboard-container {
+  position: relative;
+  display: flex;
+}
+
+.white-keys {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.black-keys {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  padding-left: 22px;
+}
+
+.hidden {
+  visibility: hidden;
+}

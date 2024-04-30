@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { KEYMAP } from "../../constants/Piano";
+import { WHITE_KEYMAP, BLACK_KEYMAP } from "../../constants/Piano";
 
 const Piano = () => {
   const [note, setNote] = useState<string>("");
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (KEYMAP[event.key]) {
-        playSound(KEYMAP[event.key]);
+      if (WHITE_KEYMAP[event.key]) {
+        playSound(WHITE_KEYMAP[event.key]);
+      } else if (BLACK_KEYMAP[event.key]) {
+        playSound(BLACK_KEYMAP[event.key]);
       }
     };
     window.addEventListener("keydown", handleKeyDown);

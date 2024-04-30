@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
-import { Keyboard } from "./Piano.keyboard";
+import { Keyboard, FinishedKeyboard } from "./Piano.keyboard";
 
 const meta: Meta<typeof Keyboard> = {
   title: "Example/Keyboard",
@@ -29,4 +29,8 @@ export const Black: Story = {
     isBlack: true,
     label: "C#",
   },
+};
+
+export const Finished: Story = {
+  render: FinishedKeyboard,
 };

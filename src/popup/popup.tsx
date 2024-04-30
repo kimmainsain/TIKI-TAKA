@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./popup.css";
 import { Button } from "../stories/PianoStories/Piano.button";
 import Piano from "../components/piano/Piano";
+import PianoKeyboard from "../components/piano/Piano.keyboard";
 
 const App: React.FC<{}> = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC<{}> = () => {
         onClick={void 0}
       />
       <Piano />
+      <PianoKeyboard />
     </div>
   );
 };

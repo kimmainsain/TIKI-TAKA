@@ -5,11 +5,6 @@ import { Button } from "../stories/PianoStories/Piano.button";
 import Piano from "../components/piano/Piano";
 
 const App: React.FC<{}> = () => {
-  const openNewTab = () => {
-    chrome.tabs.create({ url: "https://github.com" });
-    // 웹 사이트 하나 구축하기
-  };
-
   return (
     <div>
       <Button
@@ -17,14 +12,14 @@ const App: React.FC<{}> = () => {
         backgroundColor="#4CAF50"
         size="medium"
         label="New tab"
-        onClick={openNewTab}
+        onClick={void 0}
       />
       <Button
         primary={true}
         backgroundColor="#4CAF50"
         size="medium"
         label="Turn on"
-        onClick={openNewTab}
+        onClick={void 0}
       />
       <Piano />
     </div>

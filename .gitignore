@@ -1,6 +1,4 @@
 dist
 node_modules
-PianoMP3-black
-PianoMP3-white
-
+PianoMP3
 *storybook.log

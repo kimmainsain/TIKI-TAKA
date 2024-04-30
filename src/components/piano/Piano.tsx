@@ -5,7 +5,7 @@ const Piano = () => {
   const [note, setNote] = useState<string>("");
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (KEYMAP[event.key]) {
         playSound(KEYMAP[event.key]);
       }
@@ -18,14 +18,10 @@ const Piano = () => {
   }, []);
 
   const playSound = (note: string) => {
-    // const url = `/sounds/${note}.mp3`; // note 파일 경로
-    // const audio = new Audio(SOUND[note]);
-    // audio.play();
     setNote(note);
-    // const audio = new Audio("Keyq.mp3");
-    // audio.play();
-    // const audio2 = new Audio("PianoMP3-white/Digit0.mp3");
-    // audio2.play();
+    const audio = new Audio(`./PianoMP3/${note}.mp3`);
+    audio.play();
+    console.log(audio);
   };
 
   return (

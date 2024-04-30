@@ -1,13 +1,20 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import "./popup.css";
-import { Button } from "../stories/PianoStories/Piano.button";
+// import { Button } from "../stories/PianoStories/Piano.button";
 import Piano from "../components/piano/Piano";
+import { FinishedKeyboard } from "../stories/PianoStories/Piano.keyboard";
 
 const App: React.FC<{}> = () => {
   return (
-    <div>
-      <Button
+    <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+    >
+      {/* <Button
         primary={true}
         backgroundColor="#4CAF50"
         size="medium"
@@ -20,8 +27,9 @@ const App: React.FC<{}> = () => {
         size="medium"
         label="Turn on"
         onClick={void 0}
-      />
+      /> */}
       <Piano />
+      <FinishedKeyboard />
     </div>
   );
 };

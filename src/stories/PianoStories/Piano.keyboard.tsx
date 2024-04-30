@@ -14,7 +14,6 @@ type KeyboardProps = {
 
 export const Keyboard = ({ label, isBlack, isEmpty }: KeyboardProps) => {
   const keyboardClass = `storybook-piano-keyboard ${isBlack ? "storybook-piano-keyboard--black" : "storybook-piano-keyboard--white"} ${isEmpty ? "hidden" : ""}`;
-  console.log(isEmpty);
   return (
     <div className={keyboardClass}>
       <div className="label">{label}</div>
@@ -30,7 +29,7 @@ export const FinishedKeyboard = () => {
         {WHITE_KEYMAP.map((item) => (
           <Keyboard
             key={item.key}
-            label={item.key}
+            label={item.displayKey}
             isBlack={false}
             isEmpty={false}
           />
@@ -42,7 +41,7 @@ export const FinishedKeyboard = () => {
           return (
             <Keyboard
               key={item.key}
-              label={item.key}
+              label={item.displayKey}
               isBlack={true}
               isEmpty={isEmpty}
             />

@@ -9,3 +9,7 @@ export const KEYMAP = {
   i: "C#",
   o: "D#",
 };
+
+export const SOUND = {
+  C: "../../PianoMP3-black/Keya.mp3",
+};

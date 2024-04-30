@@ -13,9 +13,9 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "React Extension"
+    "default_title": "Tiki-Taka"
   },
-  "permissions": ["storage"],
+  "permissions": ["tabs"],
   "options_page": "options.html",
   "background": {
     "service_worker": "background.js"

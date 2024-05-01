@@ -15,8 +15,17 @@ export const usePianoSound = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const handleKeyClick = (keyLabel: string) => {
+    const keyEntry = combinedKeyMap.find((item) => item.key === keyLabel);
+    if (keyEntry) {
+      playSound(keyEntry.code);
+    }
+  };
+
   const playSound = (note: string) => {
     const audio = new Audio(`./PianoMP3/${note}.mp3`);
     audio.play();
   };
+
+  return { handleKeyClick };
 };

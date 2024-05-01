@@ -3,11 +3,11 @@ import { createRoot } from "react-dom/client";
 import "./popup.css";
 // import { Button } from "../stories/PianoStories/Piano.button";
 import { FinishedKeyboard } from "../stories/PianoStories/Piano.keyboard";
-import { usePianoSound } from "../hooks/piano/usePianoSound";
+// import { usePianoKeydownSound } from "../hooks/piano/usePianoKeydownSound";
 
 const App: React.FC<{}> = () => {
-  usePianoSound();
-  
+  // usePianoKeydownSound();
+
   return (
     <div
       style={{

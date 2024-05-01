@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { WHITE_KEYMAP, BLACK_KEYMAP } from "../../constants/Piano";
 
 const combinedKeyMap = [...WHITE_KEYMAP, ...BLACK_KEYMAP];
 
-const Piano = () => {
+export const usePianoSound = () => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       const keyEntry = combinedKeyMap.find((item) => item.key === event.key);
@@ -19,8 +19,4 @@ const Piano = () => {
     const audio = new Audio(`./PianoMP3/${note}.mp3`);
     audio.play();
   };
-
-  return <></>;
 };
-
-export default Piano;

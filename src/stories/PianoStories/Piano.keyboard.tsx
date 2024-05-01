@@ -5,17 +5,30 @@ import {
   BLACK_KEYMAP,
   HIDDEN_KEYMAP,
 } from "../../constants/Piano";
+import { usePianoSound } from "../../hooks/piano/usePianoSound";
+import { usePianoInteraction } from "../../hooks/piano/usePianoInteracion";
 
 type KeyboardProps = {
+  keyValue: string;
   label: string;
   isBlack: boolean;
   isEmpty: boolean;
+  propOnClick?: () => void;
 };
 
-export const Keyboard = ({ label, isBlack, isEmpty }: KeyboardProps) => {
-  const keyboardClass = `storybook-piano-keyboard ${isBlack ? "storybook-piano-keyboard--black" : "storybook-piano-keyboard--white"} ${isEmpty ? "hidden" : ""}`;
+export const Keyboard = ({
+  keyValue,
+  label,
+  isBlack,
+  isEmpty,
+  propOnClick,
+}: KeyboardProps) => {
+  const activeKeys = usePianoInteraction();
+  const isActive = activeKeys[keyValue];
+
+  const keyboardClass = `storybook-piano-keyboard ${isBlack ? "storybook-piano-keyboard--black" : "storybook-piano-keyboard--white"} ${isEmpty ? "hidden" : ""} ${isActive ? "active" : ""}`;
   return (
-    <div className={keyboardClass}>
+    <div className={keyboardClass} onClick={propOnClick}>
       <div className="label">{label}</div>
       {isBlack && <div className="arrow">↑</div>}
     </div>
@@ -23,15 +36,20 @@ export const Keyboard = ({ label, isBlack, isEmpty }: KeyboardProps) => {
 };
 
 export const FinishedKeyboard = () => {
+  const { handleKeyClick } = usePianoSound();
   return (
     <div className="storybook-piano-keyboard-container">
       <div className="white-keys">
         {WHITE_KEYMAP.map((item) => (
           <Keyboard
             key={item.key}
+            keyValue={item.key}
             label={item.displayKey}
             isBlack={false}
             isEmpty={false}
+            propOnClick={() => {
+              handleKeyClick(item.key);
+            }}
           />
         ))}
       </div>
@@ -41,9 +59,13 @@ export const FinishedKeyboard = () => {
           return (
             <Keyboard
               key={item.key}
+              keyValue={item.key}
               label={item.displayKey}
               isBlack={true}
               isEmpty={isEmpty}
+              propOnClick={() => {
+                handleKeyClick(item.key);
+              }}
             />
           );
         })}

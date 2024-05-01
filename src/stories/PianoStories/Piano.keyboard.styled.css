@@ -37,6 +37,22 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
+.storybook-piano-keyboard--white.active {
+  background-color: #ededed;
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.storybook-piano-keyboard--black.active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.storybook-piano-keyboard:hover {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
 .arrow {
   margin-top: 5px;
 }

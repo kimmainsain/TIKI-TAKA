@@ -6,23 +6,29 @@ import {
   HIDDEN_KEYMAP,
 } from "../../constants/Piano";
 import { usePianoSound } from "../../hooks/piano/usePianoSound";
+import { usePianoInteraction } from "../../hooks/piano/usePianoInteracion";
 
 type KeyboardProps = {
+  keyValue: string;
   label: string;
   isBlack: boolean;
   isEmpty: boolean;
-  onClick?: () => void;
+  propOnClick?: () => void;
 };
 
 export const Keyboard = ({
+  keyValue,
   label,
   isBlack,
   isEmpty,
-  onClick,
+  propOnClick,
 }: KeyboardProps) => {
-  const keyboardClass = `storybook-piano-keyboard ${isBlack ? "storybook-piano-keyboard--black" : "storybook-piano-keyboard--white"} ${isEmpty ? "hidden" : ""}`;
+  const activeKeys = usePianoInteraction();
+  const isActive = activeKeys[keyValue];
+
+  const keyboardClass = `storybook-piano-keyboard ${isBlack ? "storybook-piano-keyboard--black" : "storybook-piano-keyboard--white"} ${isEmpty ? "hidden" : ""} ${isActive ? "active" : ""}`;
   return (
-    <div className={keyboardClass} onClick={onClick}>
+    <div className={keyboardClass} onClick={propOnClick}>
       <div className="label">{label}</div>
       {isBlack && <div className="arrow">↑</div>}
     </div>
@@ -37,10 +43,11 @@ export const FinishedKeyboard = () => {
         {WHITE_KEYMAP.map((item) => (
           <Keyboard
             key={item.key}
+            keyValue={item.key}
             label={item.displayKey}
             isBlack={false}
             isEmpty={false}
-            onClick={() => {
+            propOnClick={() => {
               handleKeyClick(item.key);
             }}
           />
@@ -52,10 +59,11 @@ export const FinishedKeyboard = () => {
           return (
             <Keyboard
               key={item.key}
+              keyValue={item.key}
               label={item.displayKey}
               isBlack={true}
               isEmpty={isEmpty}
-              onClick={() => {
+              propOnClick={() => {
                 handleKeyClick(item.key);
               }}
             />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Piano.button.styled.css";
 
 interface ButtonProps {
@@ -30,5 +30,30 @@ export const Button = ({
     >
       {label}
     </button>
+  );
+};
+
+export const VolumeControl = () => {
+  const [volume, setVolume] = useState<number>(50);
+
+  const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setVolume(Number(event.target.value));
+  };
+
+  return (
+    <div className="volume-control">
+      <label htmlFor="volume-slider" className="volume-label">
+        Volume: {volume}
+      </label>
+      <input
+        id="volume-slider"
+        type="range"
+        min="0"
+        max="100"
+        value={volume}
+        onChange={handleVolumeChange}
+        className="volume-slider"
+      />
+    </div>
   );
 };

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
-import { Button } from "./Piano.button";
+import { Button, VolumeControl } from "./Piano.button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Button> = {
@@ -32,30 +32,6 @@ export const Primary: Story = {
   },
 };
 
-export const Warning: Story = {
-  args: {
-    primary: true,
-    label: "Delete now",
-    backgroundColor: "red",
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    label: "Button",
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: "large",
-    label: "Button",
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: "small",
-    label: "Button",
-  },
+export const VolumeControlStory: Story = {
+  render: VolumeControl,
 };

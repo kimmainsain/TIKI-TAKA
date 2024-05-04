@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
 import { WHITE_KEYMAP, BLACK_KEYMAP } from "../../constants/Piano";
+import type { ActiveKeys } from "../../types/piano";
 
 const combinedKeyMap = [...WHITE_KEYMAP, ...BLACK_KEYMAP];
 
-// activeKeys type
-interface ActiveKeys {
-  [key: string]: boolean;
-}
-
-export const usePianoSound = () => {
+export const usePianoSoundKeyboard = () => {
   const [activeKeys, setActiveKeys] = useState<ActiveKeys>({});
-  
-  // 키보드 핸들링
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (!activeKeys[event.key]) {
@@ -36,18 +31,8 @@ export const usePianoSound = () => {
     };
   }, [activeKeys]);
 
-  // 마우스 클릭 핸들링
-  const handleKeyClick = (key: string) => {
-    const keyEntry = combinedKeyMap.find((item) => item.key === key);
-    if (keyEntry) {
-      playSound(keyEntry.code);
-    }
-  };
-
   const playSound = (note: string) => {
     const audio = new Audio(`./PianoMP3/${note}.mp3`);
     audio.play();
   };
-
-  return { handleKeyClick };
 };

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import type { ActiveKeys } from "../../types/piano";
 
 export const usePianoInteraction = () => {
-  const [activeKeys, setActiveKeys] = useState({});
+  const [activeKeys, setActiveKeys] = useState<ActiveKeys>({});
 
   useEffect(() => {
     const downHandler = ({ key }) => {

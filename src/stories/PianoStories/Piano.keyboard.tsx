@@ -5,7 +5,8 @@ import {
   BLACK_KEYMAP,
   HIDDEN_KEYMAP,
 } from "../../constants/Piano";
-import { usePianoSound } from "../../hooks/piano/usePianoSound";
+import { usePianoSoundKeyboard } from "../../hooks/piano/usePianoSound_Keyboard";
+import { usePianoSoundMouse } from "../../hooks/piano/usePianoSound_Mouse";
 import { usePianoInteraction } from "../../hooks/piano/usePianoInteracion";
 
 type KeyboardProps = {
@@ -36,7 +37,7 @@ export const Keyboard = ({
 };
 
 export const FinishedKeyboard = () => {
-  const { handleKeyClick } = usePianoSound();
+  usePianoSoundKeyboard();
   return (
     <div className="storybook-piano-keyboard-container">
       <div className="white-keys">
@@ -48,7 +49,7 @@ export const FinishedKeyboard = () => {
             isBlack={false}
             isEmpty={false}
             propOnClick={() => {
-              handleKeyClick(item.key);
+              usePianoSoundMouse(item.key);
             }}
           />
         ))}
@@ -64,7 +65,7 @@ export const FinishedKeyboard = () => {
               isBlack={true}
               isEmpty={isEmpty}
               propOnClick={() => {
-                handleKeyClick(item.key);
+                usePianoSoundMouse(item.key);
               }}
             />
           );

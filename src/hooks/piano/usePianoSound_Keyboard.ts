@@ -14,7 +14,6 @@ export const usePianoSoundKeyboard = () => {
         if (keyEntry) {
           playSound(keyEntry.code);
           setActiveKeys((prevKeys) => ({ ...prevKeys, [event.key]: true }));
-          console.log(activeKeys);
         }
       }
     };

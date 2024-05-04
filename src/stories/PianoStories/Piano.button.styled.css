@@ -28,18 +28,39 @@
   font-size: 16px;
   padding: 12px 24px;
 }
-
-.volume-control {
+.volume-control-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 20px;
+  gap: 10px; /* 슬라이더와 레이블 사이의 간격을 설정합니다. */
+  margin: 20px; /* 주변 요소와의 간격을 추가합니다. */
 }
 
 .volume-label {
-  margin-right: 10px;
+  font-size: 16px;
+  color: #333; /* 레이블의 색상을 설정합니다. */
 }
 
 .volume-slider {
   width: 100px;
+  height: 5px;
+  cursor: pointer;
+  appearance: none;
+  background: #ccc;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #666;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: #666;
+  cursor: pointer;
+  border-radius: 50%;
 }

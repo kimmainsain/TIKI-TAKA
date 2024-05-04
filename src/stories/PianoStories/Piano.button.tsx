@@ -34,22 +34,23 @@ export const Button = ({
 };
 
 export const VolumeControl = () => {
-  const [volume, setVolume] = useState<number>(50);
+  const [volume, setVolume] = useState<number>(0.5);
 
   const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setVolume(Number(event.target.value));
   };
 
   return (
-    <div className="volume-control">
+    <div className="volume-control-container">
       <label htmlFor="volume-slider" className="volume-label">
-        Volume: {volume}
+        Volume: {volume.toFixed(2)}
       </label>
       <input
         id="volume-slider"
         type="range"
         min="0"
-        max="100"
+        max="1"
+        step="0.01"
         value={volume}
         onChange={handleVolumeChange}
         className="volume-slider"

@@ -5,6 +5,7 @@
   height: 200px;
   display: flex;
   cursor: pointer;
+  font-size: 1.1rem;
 }
 
 .storybook-piano-keyboard--white {

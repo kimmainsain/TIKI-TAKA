@@ -1,23 +1,25 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import "./popup.css";
-// import { Button } from "../stories/PianoStories/Piano.button";
+import { VolumeControl } from "../stories/PianoStories/Piano.button";
 import { FinishedKeyboard } from "../stories/PianoStories/Piano.keyboard";
-// import { usePianoKeydownSound } from "../hooks/piano/usePianoKeydownSound";
+import { RecoilRoot } from "recoil";
 
 const App: React.FC<{}> = () => {
-  // usePianoKeydownSound();
-
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <FinishedKeyboard />
-    </div>
+    <RecoilRoot>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <VolumeControl />
+        <FinishedKeyboard />
+      </div>
+    </RecoilRoot>
   );
 };
 

@@ -89,3 +89,5 @@ export const BLACK_KEYMAP = [
   { key: "N", code: "KeyN-N", displayKey: "N" },
   { key: "M", code: "KeyM-M", displayKey: "M" },
 ];
+
+export const combinedKeyMap = [...WHITE_KEYMAP, ...BLACK_KEYMAP];

@@ -38,6 +38,7 @@ export const Keyboard = ({
 
 export const FinishedKeyboard = () => {
   usePianoSoundKeyboard();
+  const handleClick = usePianoSoundMouse();
   return (
     <div className="storybook-piano-keyboard-container">
       <div className="white-keys">
@@ -49,7 +50,7 @@ export const FinishedKeyboard = () => {
             isBlack={false}
             isEmpty={false}
             propOnClick={() => {
-              usePianoSoundMouse(item.key);
+              handleClick(item.key);
             }}
           />
         ))}
@@ -65,7 +66,7 @@ export const FinishedKeyboard = () => {
               isBlack={true}
               isEmpty={isEmpty}
               propOnClick={() => {
-                usePianoSoundMouse(item.key);
+                handleClick (item.key);
               }}
             />
           );

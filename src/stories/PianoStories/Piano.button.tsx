@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Piano.button.styled.css";
-import { usePianoSound } from "../../hooks/piano/usePianoSound";
+import { volumeState } from "../../recoils/volumeState";
+import { useRecoilState } from "recoil";
 
 interface ButtonProps {
   primary?: boolean;
@@ -35,7 +36,7 @@ export const Button = ({
 };
 
 export const VolumeControl = () => {
-  const [volume, setVolume] = useState<number>(0.5);
+  const [volume, setVolume] = useRecoilState(volumeState);
 
   const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setVolume(Number(event.target.value));

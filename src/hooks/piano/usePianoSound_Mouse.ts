@@ -1,10 +1,15 @@
 import { combinedKeyMap } from "../../constants/Piano";
 import { usePianoSound } from "./usePianoSound";
 
+export const usePianoSoundMouse = () => {
+  const playSound = usePianoSound();
 
-export const usePianoSoundMouse = (key: string) => {
-  const keyEntry = combinedKeyMap.find((item) => item.key === key);
-  if (keyEntry) {
-    usePianoSound(keyEntry.code);
-  }
+  const handleClick = (key: string) => {
+    const keyEntry = combinedKeyMap.find((item) => item.key === key);
+    if (keyEntry) {
+      playSound(keyEntry.code);
+    }
+  };
+
+  return handleClick;
 };

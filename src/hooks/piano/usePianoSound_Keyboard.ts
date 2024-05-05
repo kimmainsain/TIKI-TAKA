@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { WHITE_KEYMAP, BLACK_KEYMAP } from "../../constants/Piano";
+import { combinedKeyMap } from "../../constants/Piano";
 import type { ActiveKeys } from "../../types/piano";
-
-const combinedKeyMap = [...WHITE_KEYMAP, ...BLACK_KEYMAP];
+import { usePianoSound } from "./usePianoSound";
 
 export const usePianoSoundKeyboard = () => {
   const [activeKeys, setActiveKeys] = useState<ActiveKeys>({});
@@ -12,7 +11,7 @@ export const usePianoSoundKeyboard = () => {
       if (!activeKeys[event.key]) {
         const keyEntry = combinedKeyMap.find((item) => item.key === event.key);
         if (keyEntry) {
-          playSound(keyEntry.code);
+          usePianoSound(keyEntry.code);
           setActiveKeys((prevKeys) => ({ ...prevKeys, [event.key]: true }));
         }
       }
@@ -29,9 +28,4 @@ export const usePianoSoundKeyboard = () => {
       window.removeEventListener("keyup", handleKeyUp);
     };
   }, [activeKeys]);
-
-  const playSound = (note: string) => {
-    const audio = new Audio(`./PianoMP3/${note}.mp3`);
-    audio.play();
-  };
 };

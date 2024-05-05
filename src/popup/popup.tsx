@@ -1,9 +1,8 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import "./popup.css";
-// import { Button } from "../stories/PianoStories/Piano.button";
+import { VolumeControl } from "../stories/PianoStories/Piano.button";
 import { FinishedKeyboard } from "../stories/PianoStories/Piano.keyboard";
-// import { usePianoKeydownSound } from "../hooks/piano/usePianoKeydownSound";
 
 const App: React.FC<{}> = () => {
   // usePianoKeydownSound();
@@ -14,8 +13,10 @@ const App: React.FC<{}> = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        flexDirection: "column",
       }}
     >
+      <VolumeControl />
       <FinishedKeyboard />
     </div>
   );

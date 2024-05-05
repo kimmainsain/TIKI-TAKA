@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Piano.button.styled.css";
+import { usePianoSound } from "../../hooks/piano/usePianoSound";
 
 interface ButtonProps {
   primary?: boolean;

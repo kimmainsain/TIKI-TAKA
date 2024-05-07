@@ -4,10 +4,24 @@ import "./popup.css";
 import { VolumeControl } from "../stories/PianoStories/Piano.button";
 import { FinishedKeyboard } from "../stories/PianoStories/Piano.keyboard";
 import { RecoilRoot } from "recoil";
+import Scene from "../components/background";
+import { Canvas } from "@react-three/fiber";
 
 const App: React.FC<{}> = () => {
   return (
     <RecoilRoot>
+      <div
+        style={{
+          position: "fixed",
+          zIndex: 0,
+          height: "100%",
+          width: "100%",
+        }}
+      >
+        <Canvas>
+          <Scene />
+        </Canvas>
+      </div>
       <div
         style={{
           display: "flex",

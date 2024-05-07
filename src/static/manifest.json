@@ -15,7 +15,6 @@
     "default_popup": "",
     "default_title": "Tiki-Taka"
   },
-  "permissions": ["tabs"],
   "options_page": "options.html",
   "background": {
     "service_worker": "background.js"

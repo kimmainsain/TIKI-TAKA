@@ -1,21 +1,22 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import "./popup.css";
 import { VolumeControl } from "../stories/PianoStories/Piano.button";
 import { FinishedKeyboard } from "../stories/PianoStories/Piano.keyboard";
 import { RecoilRoot } from "recoil";
+import Scene from "../components/background";
+import { Canvas } from "@react-three/fiber";
+import "./popup.css";
+import "../styles/background.css";
 
 const App: React.FC<{}> = () => {
   return (
     <RecoilRoot>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-        }}
-      >
+      <div className="background-canvas">
+        <Canvas>
+          <Scene />
+        </Canvas>
+      </div>
+      <div className="popup-container">
         <VolumeControl />
         <FinishedKeyboard />
       </div>
